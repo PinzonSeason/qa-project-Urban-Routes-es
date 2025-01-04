@@ -20,15 +20,13 @@ class TestUrbanRoutes:
         # cls.driver = webdriver.Chrome(desired_capabilities=capabilities)
 
         cls.driver = webdriver.Chrome()
-        cls.driver.get(data.urban_routes_url)
         cls.driver.implicitly_wait(5)
 
-        #Initialize the pages.
-        cls.urp_from_to = UrbanRoutesPage(cls.driver)
-
-        # Automatically fill the address fields
-        cls.urp_from_to.set_from()
-        cls.urp_from_to.set_to()
+    def setup_method(self):
+        self.driver.get(data.urban_routes_url)
+        self.urp_from_to = UrbanRoutesPage(self.driver)
+        self.urp_from_to.set_from()
+        self.urp_from_to.set_to()
 
     def test_set_route(self):
         """Try the process of filling the address fields"""
@@ -113,13 +111,13 @@ class TestUrbanRoutes:
         ice_cream_data.ice_cream()
 
 
-    def test_car_search_model_appears(self):
-        """Wait until the emerging window appears (car search)."""
-        pass
-
-    def test_driver_info_appears(self):
-        """Wait until the driver's information appears."""
-        pass
+    # def test_car_search_model_appears(self):
+    #     """Wait until the emerging window appears (car search)."""
+    #     pass
+    #
+    # def test_driver_info_appears(self):
+    #     """Wait until the driver's information appears."""
+    #     pass
 
 
     @classmethod
