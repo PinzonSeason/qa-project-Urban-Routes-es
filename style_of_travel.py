@@ -2,8 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import data
 
-#Selectors
-ICON_COMFORT_RATE = "//img[@src='/static/media/kids.075fd8d4.svg']"
+
 
 class ComfortOption:
 

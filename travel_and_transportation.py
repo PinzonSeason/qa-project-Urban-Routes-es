@@ -2,10 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import data
 
-# Selectors
-ICON_FLASH = "//div[contains(@class, 'mode') and contains(@class, 'active')]"
-ICON_TAXI = "//img[@src='/static/media/taxi-active.b0be3054.svg']"
-BUTTON_ASK_FOR_TAXI = "//button[text()='Pedir un taxi']"
+
 
 class Transportation:
 

@@ -3,13 +3,7 @@ from selenium.webdriver.common.by import By
 import data
 import time
 
-#Selectors
-BUTTON_PAYMENT = "//div[text()='Método de pago']"
-ADD_CARD = "//div[@class='pp-title' and text()='Agregar tarjeta']"
-INPUT_CARD_NUMBER = "//input[@id='number']"
-INPUT_CARD_CODE = "//input[@id='cvc']"
-CONFIRMATION_OF_ADDING = "//button[contains(@class, 'button') and contains(@class, 'full') and not(contains(@class, 'disabled'))]"
-CLOSE_MODAL_BUTTON = "//button[contains(@class, 'close-modal')]"
+
 
 class PaymentMethod:
 
