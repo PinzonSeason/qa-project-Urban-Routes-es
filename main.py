@@ -19,7 +19,12 @@ class TestUrbanRoutes:
         # capabilities["goog:loggingPrefs"] = {'performance': 'ALL'}
         # cls.driver = webdriver.Chrome(desired_capabilities=capabilities)
 
-        cls.driver = webdriver.Chrome()
+        # Configurar el navegador para habilitar los logs de rendimiento
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument("--enable-logging")
+        chrome_options.add_argument("--v=1")
+
+        cls.driver = webdriver.Chrome(options=chrome_options)
         cls.driver.implicitly_wait(5)
 
     def setup_method(self):
@@ -56,8 +61,6 @@ class TestUrbanRoutes:
         phone_number_field_data.fill_phone_number()
         phone_number_field_data.click_phone_confirmation()
         phone_number_field_data.click_close_button_section_close()
-        # phone_number_field_data.retrieve_phone_code()
-        # phone_number_field_data.modal_for_sms_confirmation()
 
     def test_fill_card(self):
         """Add a payment method."""
@@ -111,14 +114,14 @@ class TestUrbanRoutes:
         ice_cream_data.ice_cream()
 
 
-    # def test_car_search_model_appears(self):
-    #     """Wait until the emerging window appears (car search)."""
-    #     pass
-    #
-    # def test_driver_info_appears(self):
-    #     """Wait until the driver's information appears."""
-    #     pass
+    def test_car_search_model_appears(self):
+        """Wait until the emerging window appears (car search)."""
+        #Para esto necesito interactuar con retrieve_phone_code, el cual no he podido decifrar, lo modifique a un selenium mas actual y aun asi no pude, no entiendo el tema de los logs
+        pass
 
+    def test_driver_info_appears(self):
+        """Wait until the driver's information appears."""
+        pass
 
     @classmethod
     def teardown_class(cls):

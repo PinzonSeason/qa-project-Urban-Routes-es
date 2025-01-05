@@ -9,56 +9,62 @@ Antes de ejecutar las pruebas, asegúrate de tener instalados los siguientes paq
 - `pytest`
 - `selenium`
 
-## Puedes instalar estos paquetes utilizando pip:
-``bash``
-pip install pytest selenium
+Puedes instalar estos paquetes utilizando pip:
 
-Además, asegúrate de tener el controlador de Chrome (ChromeDriver) instalado y que sea compatible con la versión de tu navegador Chrome.
+```bash
+pip install pytest selenium
+```
+
+Además, asegúrate de tener el controlador de Chrome (ChromeDriver) instalado y que sea compatible con la versión de tu navegador Chrome. Puedes descargarlo desde [aquí](https://sites.google.com/chromium.org/driver/).
 
 ## Ejecución de Pruebas
 
 Para ejecutar todas las pruebas, usa el siguiente comando en la terminal:
-*pytest test_urban_routes.py*
 
-Este comando ejecutará todas las pruebas definidas en el archivo *test_urban_routes.py.*
+```bash
+pytest test_urban_routes.py
+```
+
+Este comando ejecutará todas las pruebas definidas en el archivo `test_urban_routes.py`.
 
 ## Descripción de las Pruebas
+
 Este conjunto de pruebas verifica el comportamiento de la funcionalidad de solicitud de taxis a través de la interfaz de usuario. Las pruebas cubren los siguientes escenarios:
 
-**- `Llenado de campos de dirección:`** Llenado Verifica que los campos de origen y destino se llenen correctamente.
+- **test_set_route:** 
+  - Verifica que los campos de origen y destino se llenen correctamente.
 
-**- `Solicitud de taxi:`** Prueba la selección del modo de transporte y la solicitud de un taxi.
+- **test_select_plan:** 
+  - Prueba la selección del modo de transporte y la solicitud de un taxi.
 
-**- `Relleno del número de teléfono:`** Verifica que se pueda ingresar un número de teléfono y recuperar el código de confirmación.
+- **test_fill_phone_number:** 
+  - Verifica que se pueda ingresar un número de teléfono y recuperar el código de confirmación.
 
-**- `Agregar método de pago:`** Prueba la funcionalidad para agregar un método de pago.
+- **test_fill_card:** 
+  - Prueba la funcionalidad para agregar un método de pago.
 
-**- `Enviar mensaje al conductor:`** Verifica que se pueda enviar un mensaje al conductor.
+- **test_comment_for_driver:** 
+  - Verifica que se pueda enviar un mensaje al conductor.
 
-**- `Solicitar comodidad adicional`** Prueba la opción de solicitar comodidades adicionales durante la solicitud del taxi.
+- **test_order_blanket_and_handkerchiefs:** 
+  - Prueba la opción de solicitar comodidades adicionales durante la solicitud del taxi.
+
+- **test_order_2_ice_creams:** 
+  - Prueba la opción de solicitar helados adicionales durante la solicitud del taxi.
 
 ## Estructura del Código
+
 El código está organizado en clases que representan diferentes páginas y componentes de la aplicación. Cada prueba se define como un método dentro de la clase **TestUrbanRoutes**, que utiliza el controlador de Selenium para interactuar con la aplicación.
 
-## Clases Principales
-**- `UrbanRoutesPage:`** Maneja la interacción con la página de rutas urbanas.
+### Clases Principales
 
-**- `Transportation:`** Maneja la selección del modo de transporte.
-
-**- `ComfortOption:`** Maneja las opciones de comodidad durante el viaje.
-
-**- `PhoneNumber:`** Maneja el campo de número de teléfono y la recuperación del código de confirmación.
-
-**- `PaymentMethod:`** Maneja la adición de métodos de pago.
-
-**- `DriverMessage:`** Maneja el envío de mensajes al conductor.
-
-**- `ComfortTrip:`** Maneja la solicitud de comodidades adicionales.
+- **`UrbanRoutesPage:`** Maneja la interacción con la página de rutas urbanas.
 
 ## Información Adicional
-Si encuentras errores o tienes sugerencias para mejorar las pruebas, por favor abre un ``issue`` en este repositorio.
+
+Si encuentras errores o tienes sugerencias para mejorar las pruebas, por favor abre un `issue` en este repositorio.
 
 ## Información del Autor
-Nombre: Eduardo Reyna Hernández
 
-Cohorte: 15
+**Nombre:** Eduardo Reyna Hernández  
+**Cohorte:** 19
