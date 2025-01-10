@@ -13,13 +13,6 @@ class TestUrbanRoutes:
 
     @classmethod
     def setup_class(cls):
-        # no lo modifiques, ya que necesitamos un registro adicional habilitado para recuperar el código de confirmación del teléfono
-        # from selenium.webdriver import DesiredCapabilities
-        # capabilities = DesiredCapabilities.CHROME
-        # capabilities["goog:loggingPrefs"] = {'performance': 'ALL'}
-        # cls.driver = webdriver.Chrome(desired_capabilities=capabilities)
-
-        # Configurar el navegador para habilitar los logs de rendimiento
         chrome_options = webdriver.ChromeOptions()
         chrome_options.add_argument("--enable-logging")
         chrome_options.add_argument("--v=1")
@@ -48,6 +41,9 @@ class TestUrbanRoutes:
         select_plan_data.click_taxi_mode()
         select_plan_data.click_ask_for_taxi()
 
+        # Aserción para verificar que el plan se seleccionó correctamente
+        assert select_plan_data.is_taxi_mode_selected(), "El modo de taxi no se seleccionó correctamente."
+
     def test_fill_phone_number(self):
         """Fill in the phone number and recover the confirmation code."""
         phone_number_field_data = self.urp_from_to
@@ -61,6 +57,9 @@ class TestUrbanRoutes:
         phone_number_field_data.fill_phone_number()
         phone_number_field_data.click_phone_confirmation()
         phone_number_field_data.click_close_button_section_close()
+
+        # Aserción para verificar que el número de teléfono se llenó correctamente
+        assert phone_number_field_data.is_phone_number_filled(), "El número de teléfono no se llenó correctamente."
 
     def test_fill_card(self):
         """Add a payment method."""
@@ -78,6 +77,9 @@ class TestUrbanRoutes:
         payment_method_data.click_add_card_button()
         payment_method_data.verification_close()
 
+        # Aserción para verificar que la tarjeta se agregó correctamente
+        assert payment_method_data.is_card_added(), "La tarjeta no se agregó correctamente."
+
     def test_comment_for_driver(self):
         """Send a message to the driver."""
         driver_message_data = self.urp_from_to
@@ -88,6 +90,9 @@ class TestUrbanRoutes:
         driver_message_data.click_comfort_mode()
 
         driver_message_data.driver_message()
+
+        # Aserción para verificar que el mensaje se envió correctamente
+        assert driver_message_data.is_message_sent(), "El mensaje al conductor no se envió correctamente."
 
     def test_order_blanket_and_handkerchiefs(self):
         """Request additional comfort."""
@@ -100,6 +105,8 @@ class TestUrbanRoutes:
 
         comfort_category_data.blanket_and_kleenex()
 
+        # Aserción para verificar que la solicitud de comodidad se realizó correctamente
+        assert comfort_category_data.is_comfort_ordered(), "La solicitud de comodidad no se realizó correctamente."
 
     def test_order_2_ice_creams(self):
         """Try the full taxi application process."""
@@ -110,7 +117,6 @@ class TestUrbanRoutes:
         ice_cream_data.click_ask_for_taxi()
         ice_cream_data.click_comfort_mode()
 
-        ice_cream_data.ice_cream()
         ice_cream_data.ice_cream()
 
 

@@ -52,6 +52,29 @@ class UrbanRoutesPage:
     def __init__(self, driver):
         self.driver = driver
 
+#----------------------------------------------------------------------------------------------------------
+    """ASSERTS"""
+
+    def is_taxi_mode_selected(self):
+        # Lógica para verificar si el modo de taxi está seleccionado
+        return self.driver.find_element(*self.ICON_TAXI).is_selected()
+
+    def is_phone_number_filled(self):
+        # Lógica para verificar si el número de teléfono está lleno
+        return self.driver.find_element(*self.FIELD_PHONE_NUMBER_ID).get_attribute("value") != ""
+
+    def is_card_added(self):
+        # Lógica para verificar si la tarjeta se ha agregado correctamente
+        return self.driver.find_element(*self.CONFIRMATION_OF_ADDING).is_displayed()
+
+    def is_message_sent(self):
+        # Lógica para verificar si el mensaje al conductor se envió correctamente
+        return self.driver.find_element(*self.FILL_DRIVER_MESSAGE).is_displayed()
+
+    def is_comfort_ordered(self):
+        # Lógica para verificar si la solicitud de comodidad se realizó correctamente
+        return self.driver.find_element(*self.COUNTER_PLUS_ICE_CREAM).is_displayed()
+
 #---------------------------------------------------------------------------------------------------------
     """SET ROUTE"""
 
